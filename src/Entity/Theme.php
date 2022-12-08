@@ -10,18 +10,27 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ThemeRepository::class)]
 class Theme
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */
     private ?int $code = null;
 
-    #[ORM\Column(length: 100)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $titre = null;
 
-    #[ORM\Column(length: 200)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $sujet = null;
 
 
@@ -69,6 +78,4 @@ class Theme
 
         return $this;
     }
-
-
 }

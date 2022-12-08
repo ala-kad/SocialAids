@@ -5,18 +5,26 @@ namespace App\Entity;
 use App\Repository\AdministrateurRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AdministrateurRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=AdministrateurRepository::class)
+ */
 class Administrateur
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
 
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?int $ident = null;
 
-    #[ORM\Column(length: 50)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $nom = null;
 
 

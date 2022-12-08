@@ -8,15 +8,21 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ReglementRepository::class)]
 class Reglement
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $code_reg = null;
-
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */
     private ?int $montant = null;
 
 

@@ -7,46 +7,58 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-
-#[ORM\Entity(repositoryClass: AssociationRepository::class)]
-
+/**
+ * @ORM\Entity(repositoryClass=AssociationRepository::class)
+ */
 class Association
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $nom = null;
-
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $email = null;
-
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $ville = null;
 
-    #[ORM\Column]
-    private ?int $tel = null;
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */private ?int $tel = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $code = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $local = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $objectif = null;
-
-    #[ORM\OneToMany(mappedBy: 'AsPro', targetEntity: AssProduit::class)]
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AssProduit", mappedBy="AsPro")
+     */
     private Collection $assProduits;
-
-    #[ORM\OneToMany(mappedBy: 'id_Association', targetEntity: AssProduit::class)]
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AssProduit", mappedBy="id_Association")
+     */
     private Collection $AssProduits;
-
-
-
-
 
     public function __construct()
     {

@@ -8,31 +8,45 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
-#[ORM\Entity(repositoryClass: ProduitRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=ProduitRepository::class)
+ */
 class Produit
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $nom = null;
-    #[ORM\Column(length: 100)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $ref = null;
-
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */
     private ?int $montant = null;
-
-    #[ORM\OneToMany(mappedBy: 'ProAss', targetEntity: AssProduit::class)]
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AssProduit", mappedBy="ProAss")
+     */
     private Collection $assProduits;
-
-    #[ORM\OneToMany(mappedBy: 'ProVol', targetEntity: VolProduit::class)]
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\VolProduit", mappedBy="ProVol")
+     */
     private Collection $volProduits;
-
-    #[ORM\OneToMany(mappedBy: 'id_produit', targetEntity: AssProduit::class)]
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AssProduit", mappedBy="id_produit")
+     */
     private Collection $AssProduits;
-
-    #[ORM\OneToMany(mappedBy: 'id_prod', targetEntity: VolProduit::class)]
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\VolProduit", mappedBy="id_prod")
+     */
     private Collection $VolProd;
 
 
@@ -161,7 +175,6 @@ class Produit
             $this->VolProd->add($volProd);
             $volProd->setIdProd($this);
         }
-
         return $this;
     }
 
@@ -173,7 +186,6 @@ class Produit
                 $volProd->setIdProd(null);
             }
         }
-
         return $this;
     }
 }

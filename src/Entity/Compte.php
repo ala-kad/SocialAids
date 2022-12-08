@@ -10,19 +10,28 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass:CompteRepository::class)]
 class Compte
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $nom = null;
 
-    #[ORM\Column(length: 255)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $prenom = null;
-    #[ORM\Column(length: 50)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $email = null;
-
-    #[ORM\Column(length: 50)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $mot_pass = null;
 
     public function __construct()

@@ -7,20 +7,25 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-
-#[ORM\Entity(repositoryClass: CategorieRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=CategorieRepository::class)
+ */
 class Categorie
 {
 
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private ?int $id = null;
-
-    #[ORM\Column]
+    /**
+     * @ORM\Column(type="integer", length=10)
+     */
     private ?int $code_cat = null;
-
-    #[ORM\Column(length: 50)]
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
     private ?string $famille_cat = null;
 
     public function getId(): ?int

@@ -1,6 +1,5 @@
 
 ###> symfony/framework-bundle ###
-
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -21,10 +20,4 @@
 ###< symfony/phpunit-bridge ###
 
 /.idea
-/composer.phar
-./migrationss
-./composer.lock
-./.env
-./.env.test
-./composer.lock
-./symfony.lock
+./public/index.php

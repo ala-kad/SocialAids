@@ -1,0 +1,16 @@
+<table style="width: 100%;border: 2px solid ;">
+    <tr style="border: 2px green;">
+        <td style="border: 2px #00eaff solid;">Nom</td>
+        <td style="border: 2px #00eaff solid;">Ref</td>
+        <td style="border: 2px #00d0ff solid;">Montant</td>
+
+    </tr>
+    {% for v in listProduit %}
+        <tr style="border: 2px green;">
+            <td style="border: 2px red solid;">{{ v.nom}}</td>
+            <td style="border: 2px red solid;">{{ v.ref }}</td>
+            <td style="border: 2px red solid;">{{ v.montant }}</td>
+
+        </tr>
+    {% endfor %}
+</table>
